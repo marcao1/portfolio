@@ -1,0 +1,71 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <span class="footer-logo">M<span class="accent">.</span></span>
+      <span class="footer-copy">&copy; {year} Marco Pöchl</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .footer-logo {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--foreground);
+  }
+
+  .accent {
+    color: var(--accent);
+  }
+
+  .footer-copy {
+    font-size: 0.85rem;
+    color: var(--foreground-muted);
+  }
+
+  .footer-right a {
+    font-size: 0.85rem;
+    color: var(--foreground-muted);
+    cursor: pointer;
+    transition: color 0.25s var(--ease-out);
+  }
+  .footer-right a:hover {
+    color: var(--accent);
+  }
+
+  @media (max-width: 640px) {
+    .footer-inner {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+    .footer-left {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+</style>

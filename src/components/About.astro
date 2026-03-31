@@ -1,0 +1,145 @@
+---
+---
+
+<section id="about" class="about">
+  <div class="about-inner">
+    <div class="section-label reveal">
+      <span class="label-line"></span>
+      <span>About</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 class="about-title reveal">
+          Building things that<br /><span class="gradient-text">actually work</span>
+        </h2>
+        <p class="about-description reveal reveal-delay-1">
+          I'm Marco — a full-stack software developer who cares about clean code, great user experiences, and shipping things that matter. I work across the entire stack, from crafting pixel-perfect interfaces to architecting robust backends.
+        </p>
+        <p class="about-description reveal reveal-delay-2">
+          I believe in writing code that's as enjoyable to read as it is to use. Every project is an opportunity to build something real — no fluff, no over-engineering, just solid work.
+        </p>
+      </div>
+      <div class="about-stats reveal reveal-delay-2">
+        <div class="stat-card">
+          <span class="stat-value">Full-Stack</span>
+          <span class="stat-label">Development</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">Frontend</span>
+          <span class="stat-label">& Backend</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">Clean</span>
+          <span class="stat-label">Code</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">Real</span>
+          <span class="stat-label">Products</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: 8rem 2rem;
+    position: relative;
+  }
+
+  .about-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 3rem;
+  }
+
+  .label-line {
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--cyan) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .about-description {
+    font-size: 1.05rem;
+    color: var(--foreground-muted);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .stat-card {
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+  }
+  .stat-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+  }
+
+  .stat-value {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--foreground);
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--foreground-muted);
+  }
+
+  @media (max-width: 768px) {
+    .about {
+      padding: 5rem 1.25rem;
+    }
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+</style>

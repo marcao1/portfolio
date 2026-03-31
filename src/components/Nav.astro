@@ -1,0 +1,86 @@
+---
+---
+
+<nav class="nav">
+  <a href="#" class="nav-logo">M<span class="accent">.</span></a>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#contact" class="nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 2rem;
+    background: rgba(6, 6, 10, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+    transition: color 0.3s var(--ease-out);
+  }
+  .nav-logo:hover {
+    color: var(--accent);
+  }
+
+  .accent {
+    color: var(--accent);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--foreground-muted);
+    transition: color 0.25s var(--ease-out);
+    cursor: pointer;
+  }
+  .nav-links a:hover {
+    color: var(--foreground);
+  }
+
+  .nav-cta {
+    padding: 0.5rem 1.25rem;
+    background: var(--accent);
+    color: var(--bg-deep) !important;
+    border-radius: var(--radius-sm);
+    font-weight: 600 !important;
+    transition: background 0.25s var(--ease-out), transform 0.25s var(--ease-out) !important;
+  }
+  .nav-cta:hover {
+    background: var(--accent-bright);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 640px) {
+    .nav {
+      padding: 1rem 1.25rem;
+    }
+    .nav-links {
+      gap: 1.25rem;
+    }
+    .nav-links a:not(.nav-cta) {
+      display: none;
+    }
+  }
+</style>
