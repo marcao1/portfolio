@@ -1,4 +1,38 @@
 ---
+const projects = [
+  {
+    number: "01",
+    name: "2REAL4U",
+    description:
+      "A real estate platform built from scratch — featuring property listings, a custom CMS for publishing listings, and an elegant brand experience.",
+    tags: ["Web", "Full-Stack", "CMS", "Real Estate"],
+    previewUrl: "2real4u.at",
+    previewImage: "/2real4u-preview.png",
+    previewAlt: "2REAL4U website screenshot",
+    links: [{ label: "Visit site", href: "https://2real4u.at" }],
+  },
+  {
+    number: "02",
+    name: "Lamark",
+    description:
+      "A full-stack local marketplace for buying and selling items, vehicles, real estate, and jobs — available on web and mobile.",
+    tags: ["Web", "Mobile App", "Full-Stack", "Marketplace"],
+    previewUrl: "lamark.rs",
+    previewImage: "/lamark-preview.png",
+    previewAlt: "Lamark marketplace homepage screenshot",
+    links: [
+      { label: "Visit site", href: "https://lamark.rs" },
+      {
+        label: "Google Play",
+        href: "https://play.google.com/store/apps/details?id=com.lamark.app",
+      },
+      {
+        label: "App Store",
+        href: "https://apps.apple.com/at/app/lamark-srbija/id6759652245",
+      },
+    ],
+  },
+];
 ---
 
 <section id="projects" class="projects">
@@ -11,38 +45,69 @@
       Selected <span class="gradient-text">work</span>
     </h2>
 
-    <div class="project-card reveal reveal-delay-1">
-      <div class="project-info">
-        <div class="project-number">01</div>
-        <h3 class="project-name">2REAL4U</h3>
-        <p class="project-description">
-          A real estate platform built from scratch — featuring property listings, a custom CMS for publishing listings, and an elegant brand experience.
-        </p>
-        <div class="project-tags">
-          <span class="tag">Web</span>
-          <span class="tag">Full-Stack</span>
-          <span class="tag">CMS</span>
-          <span class="tag">Real Estate</span>
+    {
+      projects.map((project, index) => (
+        <div class={`project-card reveal reveal-delay-${index + 1}`}>
+          <div class="project-info">
+            <div class="project-number">{project.number}</div>
+            <h3 class="project-name">{project.name}</h3>
+            <p class="project-description">{project.description}</p>
+            <div class="project-tags">
+              {project.tags.map((tag) => <span class="tag">{tag}</span>)}
+            </div>
+            <div class="project-links" aria-label={`${project.name} links`}>
+              {project.links.map((link) => (
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link"
+                >
+                  {link.label}
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 17L17 7" /><path d="M7 7h10v10" />
+                  </svg>
+                </a>
+              ))}
+            </div>
+          </div>
+          <div class="project-visual">
+            <a
+              href={project.links[0].href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-preview"
+              aria-label={`Visit ${project.name}`}
+            >
+              <div class="preview-dots">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="preview-content">
+                <span class="preview-url">{project.previewUrl}</span>
+                <img
+                  src={project.previewImage}
+                  alt={project.previewAlt}
+                  class="preview-screenshot"
+                  width="1280"
+                  height="800"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+          </div>
         </div>
-        <a href="https://2real4u.at" target="_blank" rel="noopener noreferrer" class="project-link">
-          Visit site
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M7 17L17 7" /><path d="M7 7h10v10" />
-          </svg>
-        </a>
-      </div>
-      <div class="project-visual">
-        <a href="https://2real4u.at" target="_blank" rel="noopener noreferrer" class="project-preview">
-          <div class="preview-dots">
-            <span></span><span></span><span></span>
-          </div>
-          <div class="preview-content">
-            <span class="preview-url">2real4u.at</span>
-            <img src="/2real4u-preview.png" alt="2REAL4U website screenshot" class="preview-screenshot" width="1280" height="800" loading="lazy" />
-          </div>
-        </a>
-      </div>
-    </div>
+      ))
+    }
   </div>
 </section>
 
@@ -101,6 +166,11 @@
     transition: border-color 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
     align-items: center;
   }
+
+  .project-card + .project-card {
+    margin-top: 2rem;
+  }
+
   .project-card:hover {
     border-color: var(--border-hover);
     box-shadow: 0 16px 64px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--border-hover);
@@ -129,10 +199,14 @@
     margin-bottom: 1.25rem;
   }
 
-  .project-tags {
+  .project-tags,
+  .project-links {
     display: flex;
-    gap: 0.5rem;
     flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .project-tags {
     margin-bottom: 1.5rem;
   }
 
@@ -156,6 +230,7 @@
     cursor: pointer;
     transition: gap 0.25s var(--ease-out), color 0.25s var(--ease-out);
   }
+
   .project-link:hover {
     gap: 0.75rem;
     color: var(--accent-bright);
@@ -181,6 +256,7 @@
     padding: 12px 16px;
     border-bottom: 1px solid var(--border);
   }
+
   .preview-dots span {
     width: 10px;
     height: 10px;
@@ -190,7 +266,7 @@
   }
 
   .preview-content {
-    padding: 0.75rem 0.75rem 0.75rem;
+    padding: 0.75rem;
   }
 
   .preview-url {
@@ -209,6 +285,7 @@
     display: block;
     transition: transform 0.4s var(--ease-out);
   }
+
   .project-preview:hover .preview-screenshot {
     transform: scale(1.02);
   }
@@ -217,10 +294,12 @@
     .projects {
       padding: 5rem 1.25rem;
     }
+
     .project-card {
       grid-template-columns: 1fr;
       padding: 1.5rem;
     }
+
     .project-visual {
       order: -1;
     }
