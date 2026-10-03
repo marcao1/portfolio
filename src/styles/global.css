@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-
 :root {
   --bg-deep: #06060a;
   --bg-base: #0a0a10;
@@ -7,7 +5,7 @@
   --bg-card: #16161f;
   --surface: rgba(255, 255, 255, 0.04);
   --foreground: #e8eaf0;
-  --foreground-muted: #7a7f8e;
+  --foreground-muted: #8b90a0;
   --accent: #818cf8;
   --accent-bright: #a5b4fc;
   --accent-glow: rgba(129, 140, 248, 0.15);
@@ -31,7 +29,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -60,6 +57,42 @@ img {
   display: block;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Shared section styles */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.label-line {
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.accent {
+  color: var(--accent);
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
@@ -72,23 +105,23 @@ img {
   border-radius: 3px;
 }
 
-/* Scroll-triggered animations */
-.reveal {
+/* Scroll-triggered animations (only hide content once JS is known to run) */
+.js .reveal {
   opacity: 0;
   transform: translateY(32px);
   transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
 }
-.reveal.visible {
+.js .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
+.js .reveal-delay-1 { transition-delay: 0.1s; }
+.js .reveal-delay-2 { transition-delay: 0.2s; }
+.js .reveal-delay-3 { transition-delay: 0.3s; }
+.js .reveal-delay-4 { transition-delay: 0.4s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
+  .js .reveal {
     opacity: 1;
     transform: none;
     transition: none;

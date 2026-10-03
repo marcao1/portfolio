@@ -38,10 +38,6 @@
     color: var(--accent);
   }
 
-  .accent {
-    color: var(--accent);
-  }
-
   .nav-links {
     display: flex;
     align-items: center;
@@ -51,23 +47,25 @@
   .nav-links a {
     font-size: 0.9rem;
     font-weight: 500;
-    color: var(--foreground-muted);
-    transition: color 0.25s var(--ease-out);
     cursor: pointer;
   }
-  .nav-links a:hover {
+  .nav-links a:not(.nav-cta) {
+    color: var(--foreground-muted);
+    transition: color 0.25s var(--ease-out);
+  }
+  .nav-links a:not(.nav-cta):hover {
     color: var(--foreground);
   }
 
-  .nav-cta {
+  .nav-links .nav-cta {
     padding: 0.5rem 1.25rem;
     background: var(--accent);
-    color: var(--bg-deep) !important;
+    color: var(--bg-deep);
     border-radius: var(--radius-sm);
-    font-weight: 600 !important;
-    transition: background 0.25s var(--ease-out), transform 0.25s var(--ease-out) !important;
+    font-weight: 600;
+    transition: background 0.25s var(--ease-out), transform 0.25s var(--ease-out);
   }
-  .nav-cta:hover {
+  .nav-links .nav-cta:hover {
     background: var(--accent-bright);
     transform: translateY(-1px);
   }

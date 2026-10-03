@@ -1,4 +1,8 @@
 ---
+import { Image } from "astro:assets";
+import twoReal4uPreview from "../assets/2real4u-preview.png";
+import lamarkPreview from "../assets/lamark-preview.png";
+
 const projects = [
   {
     number: "01",
@@ -7,7 +11,7 @@ const projects = [
       "A real estate platform built from scratch — featuring property listings, a custom CMS for publishing listings, and an elegant brand experience.",
     tags: ["Web", "Full-Stack", "CMS", "Real Estate"],
     previewUrl: "2real4u.at",
-    previewImage: "/2real4u-preview.png",
+    previewImage: twoReal4uPreview,
     previewAlt: "2REAL4U website screenshot",
     links: [{ label: "Visit site", href: "https://2real4u.at" }],
   },
@@ -18,7 +22,7 @@ const projects = [
       "A full-stack local marketplace for buying and selling items, vehicles, real estate, and jobs — available on web and mobile.",
     tags: ["Web", "Mobile App", "Full-Stack", "Marketplace"],
     previewUrl: "lamark.rs",
-    previewImage: "/lamark-preview.png",
+    previewImage: lamarkPreview,
     previewAlt: "Lamark marketplace homepage screenshot",
     links: [
       { label: "Visit site", href: "https://lamark.rs" },
@@ -94,13 +98,12 @@ const projects = [
               </div>
               <div class="preview-content">
                 <span class="preview-url">{project.previewUrl}</span>
-                <img
+                <Image
                   src={project.previewImage}
                   alt={project.previewAlt}
                   class="preview-screenshot"
-                  width="1280"
-                  height="800"
-                  loading="lazy"
+                  widths={[400, 800]}
+                  sizes="(max-width: 768px) calc(100vw - 6rem), 400px"
                 />
               </div>
             </a>
@@ -122,37 +125,12 @@ const projects = [
     margin: 0 auto;
   }
 
-  .section-label {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1.5rem;
-  }
-
-  .label-line {
-    width: 40px;
-    height: 1px;
-    background: var(--accent);
-  }
-
   .projects-title {
     font-family: var(--font-heading);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
     letter-spacing: -0.02em;
     margin-bottom: 3rem;
-  }
-
-  .gradient-text {
-    background: linear-gradient(135deg, var(--accent) 0%, var(--cyan) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
   }
 
   .project-card {
@@ -163,7 +141,8 @@ const projects = [
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    transition: border-color 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+    /* Includes the .reveal properties, which this declaration would otherwise override */
+    transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out), border-color 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
     align-items: center;
   }
 
