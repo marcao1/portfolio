@@ -7,7 +7,7 @@
   <div class="hero-content">
     <p class="hero-tag">Freelance full-stack developer · Vienna</p>
     <h1 class="hero-title">
-      Hi, I'm <span class="gradient-text">Marco</span><span class="blink">_</span>
+      Hi, I'm <span class="gradient-text">Marco</span><span class="blink" aria-hidden="true">_</span>
     </h1>
     <p class="hero-description">
       I build websites and mobile apps on my own, from the database to the app store.
@@ -29,6 +29,7 @@
   .hero {
     position: relative;
     min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -78,6 +79,7 @@
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 1.5rem;
+    text-wrap: balance;
   }
 
   .hero-title {

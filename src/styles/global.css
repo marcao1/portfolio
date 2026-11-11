@@ -15,8 +15,8 @@
   --border-hover: rgba(255, 255, 255, 0.12);
   --radius: 16px;
   --radius-sm: 10px;
-  --font-heading: 'Archivo', system-ui, sans-serif;
-  --font-body: 'Space Grotesk', system-ui, sans-serif;
+  /* --font-heading and --font-body are defined by <Font /> in Layout.astro (see astro.config.mjs) */
+  color-scheme: dark;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 

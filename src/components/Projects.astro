@@ -59,7 +59,7 @@ const projects = [
             <div class="project-tags">
               {project.tags.map((tag) => <span class="tag">{tag}</span>)}
             </div>
-            <div class="project-links" aria-label={`${project.name} links`}>
+            <div class="project-links">
               {project.links.map((link) => (
                 <a
                   href={link.href}
@@ -253,7 +253,6 @@ const projects = [
     font-size: 0.75rem;
     color: var(--foreground-muted);
     margin-bottom: 0.5rem;
-    font-family: 'Space Grotesk', monospace;
     padding: 0 0.25rem;
   }
 
@@ -281,6 +280,15 @@ const projects = [
 
     .project-visual {
       order: -1;
+    }
+
+    /* Touch targets: 44px tall, with room between neighbours */
+    .project-links {
+      gap: 0 1.25rem;
+    }
+
+    .project-link {
+      min-height: 44px;
     }
   }
 </style>
